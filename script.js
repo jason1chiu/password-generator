@@ -12,19 +12,73 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   function generatePassword() {
+
     var passwordLength = prompt("Choose the number of characters in your password.");
 
+    // conditional for password length
     if (passwordLength < 8 || passwordLength > 128) {
       alert("Password must be between 8 to 128 characters.")
-    } else {
-      var lowercaseChars = prompt("Do you want to include lowercase characters in your password? [Y for yes or N for no]");
-      var uppercaseChars = prompt("Do you want to include uppercase characters in your password? [Y for yes or N for no]");
-      var numericChars = prompt("Do you want to include numbers in your password? [Y for yes or N for no]");
-      var specialChars = prompt("Do you want to include special characters in your password? [Y for yes or N for no]");
+    }
 
+    else {
+
+      // prompting for an answer to include lowercase characters in password
+      var lowercaseChars = prompt("Do you want to include lowercase characters in your password? [Y for yes or N for no]");
+      // while loop for lowercaseChars until conditions are met
+      while (!(lowercaseChars === "Y" || lowercaseChars === "N")) {
+        // alerts and prompts again if conditionals are not met
+        alert("Must be Y or N");
+        lowercaseChars = prompt("Do you want to include lowercase characters in your password? [Y for yes or N for no]");
+        // breaks out of while loop to move on to next prompt
+        if (lowercaseChars === "Y" || lowercaseChars === "N") {
+          break;
+        }
+      }
+      
+      // prompting for an answer to include upperase characters in password
+      var uppercaseChars = prompt("Do you want to include uppercase characters in your password? [Y for yes or N for no]");
+      // while loop for uppercaseChars until conditions are met
+      while (!(uppercaseChars === "Y" || uppercaseChars === "N")) {
+        // alerts and prompts again if conditionals are not met
+        alert("Must be Y or N");
+        uppercaseChars = prompt("Do you want to include uppercase characters in your password? [Y for yes or N for no]");
+        // breaks out of while loop to move on to next prompt
+        if (uppercaseChars === "Y" || uppercaseChars === "N") {
+          break;
+        }
+      }
+
+      // prompting for an answer to include numeric characters in password
+      var numericChars = prompt("Do you want to include numeric characters in your password? [Y for yes or N for no]");
+      // while loop for numericChars until conditions are met
+      while (!(numericChars === "Y" || numericChars === "N")) {
+        alert("Must be Y or N");
+        numericChars = prompt("Do you want to include numeric characters in your password? [Y for yes or N for no]");
+        // breaks out of while loop to move on to next prompt
+        if (numericChars === "Y" || numericChars === "N") {
+          break;
+        }
+      }
+      
+      // prompting for an answer to include special characters in password
+      var specialChars = prompt("Do you want to include special characters in your password? [Y for yes or N for no]");
+      // while loop for specialChars until conditions are met
+      while (!(specialChars === "Y" || specialChars === "N")) {
+        alert("Must be Y or N");
+        specialChars = prompt("Do you want to include special characters in your password? [Y for yes or N for no]");
+        // breaks out of while loop to move on to next step
+        if (specialChars === "Y" || specialChars === "N") {
+          break;
+        }
+      }
+
+      // generates a string for the answers given in the prompts
       var response = lowercaseChars + uppercaseChars + numericChars + specialChars;
+
+      // generates an empty string to highlight different situations
       var charsSet = ""
 
+      // switch among the 16 possible cases provided by response
       switch (response) {
         case "YYYY":
           charsSet = lowercase + uppercase + number + special;
@@ -73,11 +127,17 @@ function writePassword() {
           break;
       }
 
-      var result = '';
+      // generates an empty string to output a password
+      var result = "";
+
+      // for loop for the password generation at consecutive indices
       for (var i = 0; i < passwordLength; i++) {
+        // creates an random number between 0 and 1, multiply it by the length of charsSet, and rounding it down to the nearest integer
         var randomNumber = Math.floor(Math.random() * charsSet.length);
+        // generates a string by adding characters consecutively
         result += charsSet.charAt(randomNumber);
       }
+      // returns the password
       return result;
     }
   }
