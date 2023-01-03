@@ -1,7 +1,4 @@
-// Assignment code here
-
-
-// Get references to the #generate element
+// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
