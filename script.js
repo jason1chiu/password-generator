@@ -25,7 +25,7 @@ function writePassword() {
                 return "Thank you for trying my password generator!"
             }
             // breaks out of while loop to move on to next prompt
-            if (passwordLength >= 8 || passwordLength <= 128) {
+            if (passwordLength >= 8 && passwordLength <= 128) {
                 break;
             }
         }
