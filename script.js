@@ -16,7 +16,7 @@ function writePassword() {
             return "Thank you for trying my password generator!"
         }
         // while loop for passwordLength until conditions are met
-        while (!(passwordLength >= 8 || passwordLength <= 128) && isNaN(passwordLength)) {
+        while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
             // alerts and prompts again if conditionals are not met
             alert("Must be a number between 8 and 128");
             passwordLength = prompt("Choose the number of characters (8 to 128) in your password.");
@@ -113,23 +113,43 @@ function writePassword() {
                 return;
             }
 
+            // conditionals for including which characters to have
             if (type[0] === "Y") { charsSet += lowercase };
             if (type[1] === "Y") { charsSet += uppercase };
-            if (type[2] === "Y") { charsSet += number};
-            if (type[3] === "Y") { charsSet += special};
+            if (type[2] === "Y") { charsSet += number };
+            if (type[3] === "Y") { charsSet += special };
         }
 
+        // function to find the characters based on response
         findCharsSet(response);
-            
+        
+        // generates an empty string to fill in password
+        var result = ""
+
+        // for loop for the password generation at consecutive indices
+        for (var i = 0; i < passwordLength; i++) {
+            // creates an random number between 0 and 1, multiply it by the length of charsSet, and rounding it down to the nearest integer
+            var randomNumber = Math.floor(Math.random() * charsSet.length);
+            // generates a string by adding characters consecutively
+            result += charsSet.charAt(randomNumber);
+        }
+        // returns the password
+        return result;
+
+        /* // create an empty array of unsigned 32-bit integers based of the number of characters in charsSet 
         var array = new Uint32Array(charsSet.length);
 
+        // fills the array with random numbers in its cryptographic meaning
         window.crypto.getRandomValues(array);
+
+        // generates an empty string to fill in password
         var result = ""
     
+        // generates the password one character at a time
         for (var i = 0; i < passwordLength; i++) {
             result += charsSet[array[i] % charsSet.length];
         }
-        return result;
+        return result; */
     }
 
     passwordText.value = password;
