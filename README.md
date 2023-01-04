@@ -28,7 +28,7 @@ WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
 
-Github Pages: https://jason1chiu.github.io/password-generator/
+Github Pages: https://jason1chiu.github.io/password-generator/ <br>
 Github Repo: https://github.com/jason1chiu/password-generator/
 
-![jason1chiu github io_password-generator_(Nest Hub)](https://user-images.githubusercontent.com/119711904/210660382-b354737f-c938-4e7a-9cff-1ba2041acbf5.png)
+![jason1chiu github io_password-generator_(Nest Hub)](https://user-images.githubusercontent.com/119711904/210660572-f81c4d02-940d-43ea-8805-08102c766c2f.png)
