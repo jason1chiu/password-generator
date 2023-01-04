@@ -21,7 +21,7 @@ function writePassword() {
             return "Thank you for trying my password generator!"
         }
         // while loop for passwordLength until conditions are met
-        while (!(passwordLength >= 8 || passwordLength <= 128) && isNaN(passwordLength)) {
+        while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
             // alerts and prompts again if conditionals are not met
             alert("Must be a number between 8 and 128");
             passwordLength = prompt("Choose the number of characters (8 to 128) in your password.");
@@ -30,7 +30,7 @@ function writePassword() {
                 return "Thank you for trying my password generator!"
             }
             // breaks out of while loop to move on to next prompt
-            if (passwordLength >= 8 || passwordLength <= 128) {
+            if (passwordLength >= 8 && passwordLength <= 128) {
                 break;
             }
         }
