@@ -6,61 +6,64 @@ function writePassword() {
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
 
+    // a function to generate a password
     function generatePassword() {
 
-
-        // prompting for an answer to indicate how many characters does the user want in their password
-        var passwordLength = prompt("Choose the number of characters (8 to 128) in your password.");
-        // returns a message if user decides to cancel or enter no response
+        var passwordLength = prompt("Choose the number of characters (8 to 128) in your password.");    // prompting for an answer to indicate how many characters does the user want in their password
+        
         if (passwordLength === "" || passwordLength === null) {
-            return "Thank you for trying my password generator!"
+            return "Thank you for trying my password generator!"                                        // returns a message if user decides to cancel or enter no response
         }
+
         // while loop for passwordLength until conditions are met
         while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
-            // alerts and prompts again if conditionals are not met
-            alert("Must be a number between 8 and 128");
-            passwordLength = prompt("Choose the number of characters (8 to 128) in your password.");
-            // returns a message if user decides to cancel or enter no response
+            
+            alert("Must be a number between 8 and 128");                                                // alert the user that their input is invalid
+            passwordLength = prompt("Choose the number of characters (8 to 128) in your password.");    // ask the question again
+            
             if (passwordLength === "" || passwordLength === null) {
-                return "Thank you for trying my password generator!"
+                return "Thank you for trying my password generator!"                                    // returns a message if user decides to cancel or enter no response
             }
-            // breaks out of while loop to move on to next prompt
+
             if (passwordLength >= 8 && passwordLength <= 128) {
-                break;
+                break;                                                                                  // breaks the while loop so user can answer the next question if previous answer is valid
             }
         }
 
+        // list of questions to ask which type of characters a user wants in their password
         var lowercasePrompt = "Do you want to include lowercase characters in your password? [Y for yes or N for no]";
         var uppercasePrompt = "Do you want to include uppercase characters in your password? [Y for yes or N for no]";
         var numericPrompt = "Do you want to include numeric characters in your password? [Y for yes or N for no]";
         var specialPrompt = "Do you want to include special characters in your password? [Y for yes or N for no]";
+        
+        var response = "";                                                  // create an empty array to store response after answering prompts
 
-        var response = "";
-
+        // a function to ask each question in the list above
         function askFunction(question) {
-            var answer = prompt(question);
+            var answer = prompt(question);                                  // store the answer from the prompt
 
-            if (answer === "" || answer === null) {
-                return "Thank you for trying my password generator!";
+            if (answer === "" || answer === null) {     
+                return "Thank you for trying my password generator!";       // condition when user leave empty answer or cancel
             }
 
             while (!(answer === "Y" || answer === "N")) {
-                alert("Must be Y or N");
-                prompt(question);
+                alert("Must be Y or N");                                    // alert the user that their input is invalid
+                prompt(question);                                           // ask the question again
 
                 if (answer === "" || answer === null) {
-                    return "Thank you for trying my password generator!"
+                    return "Thank you for trying my password generator!"    // condition when user leave empty answer or cancel
                 }
 
                 if (answer === "Y" || answer === "N") {
-                    break;
+                    break;                                                  // breaks the while loop so user can answer the next question if previous answer is valid
                 }
             }
 
-            response += answer; 
+            response += answer;                                             // generates a string array of combinations of Y's and/or N's
         }
 
-        askFunction(lowercasePrompt);
+        // using the function to get a response
+        askFunction(lowercasePrompt);                                   
         askFunction(uppercasePrompt);
         askFunction(numericPrompt);
         askFunction(specialPrompt);
@@ -68,6 +71,7 @@ function writePassword() {
         // generates an empty string to highlight different situations
         var charsSet = "";
 
+        // a function to add to the empty string charsSet with the types of characters
         function findCharsSet(type) {
 
             // variables for different types of characters 
