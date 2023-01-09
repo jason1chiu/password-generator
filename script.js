@@ -30,7 +30,73 @@ function writePassword() {
             }
         }
 
-        // list of questions to ask which type of characters a user wants in their password
+        // prompting for an answer to include lowercase characters in password
+        var lowercaseChars = prompt("Do you want to include lowercase characters in your password? [Y for yes or N for no]");
+        // returns a message if user decides to cancel or enter no response
+        if (lowercaseChars === "" || lowercaseChars === null) {
+            return "Thank you for trying my password generator!"
+        }
+        // while loop for lowercaseChars until conditions are met
+        while (!(lowercaseChars === "Y" || lowercaseChars === "N")) {
+            // alerts and prompts again if conditionals are not met
+            alert("Must be Y or N");
+            lowercaseChars = prompt("Do you want to include lowercase characters in your password? [Y for yes or N for no]");
+            // returns a message if user decides to cancel or enter no response
+            if (lowercaseChars === "" || lowercaseChars === null) {
+                return "Thank you for trying my password generator!"
+            }
+            // breaks out of while loop to move on to next prompt
+            if (lowercaseChars === "Y" || lowercaseChars === "N") {
+                break;
+            }
+        }
+
+        // prompting for an answer to include upperase characters in password
+         var uppercaseChars = prompt("Do you want to include uppercase characters in your password? [Y for yes or N for no]");
+         if (uppercaseChars === "" || uppercaseChars === null) {
+             return "Thank you for trying my password generator!"
+         }
+         // while loop for uppercaseChars until conditions are met
+         while (!(uppercaseChars === "Y" || uppercaseChars === "N")) {
+             // alerts and prompts again if conditionals are not met
+             alert("Must be Y or N");
+             uppercaseChars = prompt("Do you want to include uppercase characters in your password? [Y for yes or N for no]");
+             if (uppercaseChars === "" || uppercaseChars === null) {
+                 return "Thank you for trying my password generator!"
+             }
+             // breaks out of while loop to move on to next prompt
+             if (uppercaseChars === "Y" || uppercaseChars === "N") {
+                 break;
+             }
+         }
+
+          // prompting for an answer to include numeric characters in password
+         var numericChars = prompt("Do you want to include numeric characters in your password? [Y for yes or N for no]");
+         // while loop for numericChars until conditions are met
+         while (!(numericChars === "Y" || numericChars === "N")) {
+             alert("Must be Y or N");
+             numericChars = prompt("Do you want to include numeric characters in your password? [Y for yes or N for no]");
+             // breaks out of while loop to move on to next prompt
+             if (numericChars === "Y" || numericChars === "N") {
+                 break;
+             }
+         }
+
+        // prompting for an answer to include special characters in password
+        var specialChars = prompt("Do you want to include special characters in your password? [Y for yes or N for no]");
+         // while loop for specialChars until conditions are met
+         while (!(specialChars === "Y" || specialChars === "N")) {
+             alert("Must be Y or N");
+             specialChars = prompt("Do you want to include special characters in your password? [Y for yes or N for no]");
+             // breaks out of while loop to move on to next step
+             if (specialChars === "Y" || specialChars === "N") {
+                 break;
+             }
+            }
+        
+        var response = lowercaseChars + uppercaseChars + numericChars + specialChars;
+
+/*         // list of questions to ask which type of characters a user wants in their password
         var lowercasePrompt = "Do you want to include lowercase characters in your password? [Y for yes or N for no]";
         var uppercasePrompt = "Do you want to include uppercase characters in your password? [Y for yes or N for no]";
         var numericPrompt = "Do you want to include numeric characters in your password? [Y for yes or N for no]";
@@ -66,7 +132,7 @@ function writePassword() {
         askFunction(lowercasePrompt);                                   
         askFunction(uppercasePrompt);
         askFunction(numericPrompt);
-        askFunction(specialPrompt);
+        askFunction(specialPrompt); */
 
         // generates an empty string to highlight different situations
         var charsSet = "";
