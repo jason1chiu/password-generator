@@ -96,44 +96,6 @@ function writePassword() {
         
         var response = lowercaseChars + uppercaseChars + numericChars + specialChars;
 
-/*         // list of questions to ask which type of characters a user wants in their password
-        var lowercasePrompt = "Do you want to include lowercase characters in your password? [Y for yes or N for no]";
-        var uppercasePrompt = "Do you want to include uppercase characters in your password? [Y for yes or N for no]";
-        var numericPrompt = "Do you want to include numeric characters in your password? [Y for yes or N for no]";
-        var specialPrompt = "Do you want to include special characters in your password? [Y for yes or N for no]";
-        
-        var response = "";                                                  // create an empty array to store response after answering prompts
-
-        // a function to ask each question in the list above
-        function askFunction(question) {
-            var answer = prompt(question);                                  // store the answer from the prompt
-
-            if (answer === "" || answer === null) {     
-                return "Thank you for trying my password generator!";       // condition when user leave empty answer or cancel
-            }
-
-            while (!(answer === "Y" || answer === "N")) {
-                alert("Must be Y or N");                                    // alert the user that their input is invalid
-                prompt(question);                                           // ask the question again
-
-                if (answer === "" || answer === null) {
-                    return "Thank you for trying my password generator!"    // condition when user leave empty answer or cancel
-                }
-
-                if (answer === "Y" || answer === "N") {
-                    break;                                                  // breaks the while loop so user can answer the next question if previous answer is valid
-                }
-            }
-
-            response += answer;                                             // generates a string array of combinations of Y's and/or N's
-        }
-
-        // using the function to get a response
-        askFunction(lowercasePrompt);                                   
-        askFunction(uppercasePrompt);
-        askFunction(numericPrompt);
-        askFunction(specialPrompt); */
-
         // generates an empty string to highlight different situations
         var charsSet = "";
 
