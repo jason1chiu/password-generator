@@ -119,6 +119,10 @@ function writePassword() {
             if (type[1] === "Y") { charsSet += uppercase };
             if (type[2] === "Y") { charsSet += number };
             if (type[3] === "Y") { charsSet += special };
+
+            if (type[0] === "N" && type[1] === "N" && type[2] === "N" && type[3] === "N") {
+                alert("invalid response to create password");
+            }
         }
 
         // function to find the characters based on response
